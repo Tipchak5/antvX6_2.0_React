@@ -14,16 +14,11 @@ axios.interceptors.request.use(
 		const apiToken = localStorage.getItem('token');
 
 		// 判断接口是否为登录接口
-		const isLoginUrl = config.url.indexOf('staff/get.do') !== -1;
-		const isLoginUrl2 = config.url.indexOf('department/get.do') !== -1;
-		const isLoginUrl3 = config.url.indexOf('engineer/get.do') !== -1;
 
 		if (apiToken) {
 			config.headers.Authorization = apiToken;
-		} else if (isLoginUrl || isLoginUrl2 || isLoginUrl3) {
-		} else {
+		}  else {
 			console.log('没有token');
-			window.location.href = '/#/login';
 		}
 
 		return config;
@@ -47,7 +42,6 @@ axios.interceptors.response.use(
 			// 清空数据
 			localStorage.clear();
 			sessionStorage.clear();
-			history.push('/login');
 		}
 		if (stutas === 403) {
 		}

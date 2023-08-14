@@ -16,4 +16,9 @@ code {
 #root{
   width:100VW;
   height: 100vh;
+
+  .ant-layout{
+    width: 100%;
+    height: 100%;
+  }
 }
