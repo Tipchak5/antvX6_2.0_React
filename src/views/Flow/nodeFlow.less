@@ -1,0 +1,228 @@
+.FlowManage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+    .ant-space{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btnArr{
+      display: flex;
+
+      .ant-btn{
+        margin: 0 10px 0px 0px;
+      }
+    }
+
+    .statusArr{
+      display: flex;
+
+      div{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+
+        span{
+          display: block;
+          width: 15px;
+          height: 15px;
+          border-radius: 4px;
+          margin-right: 5px;
+        }
+
+        :first-child{
+          background: #BBD1DA;
+        }
+
+        .span2 {
+          background: #F6E98C;
+        }
+
+        .span3 {
+          background: #54A617;
+        }
+      }
+    }
+
+    .content{
+      height: calc(100% - 42px);
+      display:flex;
+      flex-direction: column;
+      flex:1;
+
+      .graphBox {
+        flex: 2;
+        display: flex;
+        margin-left: 5px;
+        margin-right: 5px;
+        flex-direction: column;
+        background: #fff;
+      }
+    
+      .newAllocation {
+        height: 100%;
+        flex: 1 !important;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+  
+        .NodeIndex,.Table{
+          border-radius: 8px;
+        }
+  
+        .Table{
+          flex: 1;
+          margin-top: 10px;
+          padding: 10px;
+          box-sizing: border-box;
+          background-color: #fff;
+          overflow: auto;
+        }
+  
+      }
+      .ant-space-item{
+        flex:1;
+      }
+
+    }
+
+
+}
+
+/deep/ .el-descriptions__header {
+  margin-bottom: 0;
+  justify-content: center;
+  color: #fff;
+}
+
+/deep/ .el-descriptions__title {
+  color: #fff;
+
+}
+
+.graph-container {
+  width: 100%;
+  height: 100%;
+}
+
+.x6-widget-stencil {
+  background-color: #fff;
+}
+
+.x6-widget-stencil-title {
+  background-color: #fff;
+}
+
+.x6-widget-stencil-group-title {
+  background-color: #fff !important;
+}
+
+.x6-widget-transform {
+  margin: -1px 0 0 -1px;
+  padding: 0px;
+  // border: 1px solid #239edd;
+}
+
+.x6-widget-transform>div {
+  // border: 1px solid #239edd;
+}
+
+.x6-widget-transform>div:hover {
+  // background-color: #3dafe4;
+}
+
+.x6-widget-transform-active-handle {
+  // background-color: #3dafe4;
+}
+
+.x6-widget-transform-resize {
+  border-radius: 0;
+}
+
+.x6-widget-selection-inner {
+  // border: 1px solid #239edd;
+}
+
+.x6-widget-selection-box {
+  opacity: 0;
+}
+
+/deep/ .x6-node-immovable {
+  cursor: pointer;
+}
+
+/deep/ .x6-graph {
+  width: 100% !important;
+}
+
+.demo-tabs > .el-tabs__content {
+padding: 32px;
+color: #6b778c;
+font-size: 32px;
+font-weight: 600;
+}
+.demo-tabs .custom-tabs-label .el-icon {
+vertical-align: middle;
+}
+.demo-tabs .custom-tabs-label span {
+vertical-align: middle;
+margin-left: 4px;
+}
+
+
+/deep/ .el-progress-circle {
+height: 50px !important;
+width: 50px !important;
+}
+
+/deep/ .el-progress__text {
+font-size: 12px !important;
+}
+
+.react-shape-app {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+  position: relative;
+
+  .app-content {
+    flex: 1;
+    height:100%;
+    border-radius: 5px;
+    box-shadow: 0 12px 5px -10px rgb(0 0 0 / 10%), 0 0 4px 0 rgb(0 0 0 / 10%);
+  }
+
+}
+
+.custom-react-node {
+  display: flex;
+  background:#EFF4FF;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #87b0c4;
+  border-radius: 6px;
+
+  text-align: center;
+
+  .img{
+    width: 12px;
+    height:12px;
+    margin-right: 5px;
+  }
+}
+
+.custom-react-node span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+

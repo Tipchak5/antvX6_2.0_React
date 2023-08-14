@@ -1,0 +1,231 @@
+{
+	"cells": [
+		{
+			"position": { "x": 50, "y": 75 },
+			"shape": "custom-react-node",
+			"id": -1,
+			"label": "开始",
+			"ports": {
+				"groups": {
+					"top": {
+						"position": "top",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					},
+					"right": {
+						"position": "right",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					},
+					"bottom": {
+						"position": "bottom",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					},
+					"left": {
+						"position": "left",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					}
+				},
+				"items": [
+					{ "group": "top", "id": "0d6b4bf1-1532-4406-98f7-d84a7b364959" },
+					{ "group": "right", "id": "f5160dff-8f36-45bc-9846-53fb0a8125b6" },
+					{ "group": "bottom", "id": "b9e932e7-2689-40a2-9a23-7e2f80528179" },
+					{ "group": "left", "id": "c251265c-288c-4b65-bf5a-db5b3faff5b0" }
+				]
+			},
+			"zIndex": 1
+		},
+		{
+			"position": { "x": 200, "y": 25 },
+			"size": { "width": 100, "height": 50 },
+			"attrs": { "body": { "fill": "#fff", "refWidth": 1, "refHeight": 1, "strokeWidth": 1 } },
+			"shape": "custom-react-node",
+			"id": "task1",
+			"label": "任务1",
+			"ports": {
+				"groups": {
+					"top": {
+						"position": "top",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					},
+					"right": {
+						"position": "right",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					},
+					"bottom": {
+						"position": "bottom",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					},
+					"left": {
+						"position": "left",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					}
+				},
+				"items": [
+					{ "group": "top", "id": "8ea0a248-52cb-4914-bf5b-c9775c384e50" },
+					{ "group": "right", "id": "f45a4141-6648-4a99-a2c3-4b2152ea8b0f" },
+					{ "group": "bottom", "id": "019fb3ae-629e-4ee3-8742-c3080ffd17e9" },
+					{ "group": "left", "id": "b5435762-9049-40bc-a57e-934f7885b749" }
+				]
+			},
+			"zIndex": 2
+		},
+		{
+			"shape": "edge",
+			"id": "42dac2cc-ae0e-45df-b493-d51444a31f52",
+			"router": { "name": "manhattan" },
+			"source": { "cell": -1 },
+			"target": { "cell": "task1" },
+			"zIndex": 3
+		},
+		{
+			"position": { "x": 200, "y": 125 },
+			"size": { "width": 100, "height": 50 },
+			"attrs": { "body": { "fill": "#fff", "refWidth": 1, "refHeight": 1, "strokeWidth": 1 } },
+			"shape": "custom-react-node",
+			"id": "task2",
+			"label": "任务2",
+			"ports": {
+				"groups": {
+					"top": {
+						"position": "top",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					},
+					"right": {
+						"position": "right",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					},
+					"bottom": {
+						"position": "bottom",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					},
+					"left": {
+						"position": "left",
+						"attrs": {
+							"circle": {
+								"r": 4,
+								"magnet": true,
+								"stroke": "black",
+								"strokeWidth": 1,
+								"fill": "#fff",
+								"style": { "visibility": "hidden" }
+							}
+						}
+					}
+				},
+				"items": [
+					{ "group": "top", "id": "d2bad57a-5a38-4905-8849-1bc8cf5bd74e" },
+					{ "group": "right", "id": "a205d3fe-5b72-4c05-bfc1-b07a335acb38" },
+					{ "group": "bottom", "id": "6451f566-e749-4c18-b641-15cc7b9d0e00" },
+					{ "group": "left", "id": "ab22acb1-3e8b-4e15-82de-d9b32761dbd5" }
+				]
+			},
+			"zIndex": 4
+		},
+		{
+			"shape": "edge",
+			"id": "5be282fe-eb1b-414b-b247-eb37b7485064",
+			"router": { "name": "manhattan" },
+			"source": { "cell": -1 },
+			"target": { "cell": "task2" },
+			"zIndex": 5
+		}
+	]
+}
