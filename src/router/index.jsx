@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import SendBox from '../views/sendBox';
 
@@ -13,8 +13,6 @@ function RouterIndex(props) {
 	return (
 		<HashRouter>
 			<Switch>
-				{/* <Route component={Login} path='/' exact></Route> */}
-				{/* <Route path='/login' component={Login} /> */}
 				<Route
 					path="/"
 					component={SendBox}

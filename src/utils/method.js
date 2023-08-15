@@ -1,4 +1,5 @@
 import { message } from 'antd';
+import * as XLSX from 'xlsx/xlsx.mjs';
 import dagre from 'dagre';
 
 let count = 0;
@@ -42,25 +43,27 @@ export const resetForm = (formEl) => {
 	formEl.resetFields();
 };
 
+export const getStaffList = async () => {};
+
+export const getDepartmentList = async () => {};
+
+export const getEngineerList = async () => {};
+
+export const getTeam = async () => {};
+
+export const getClassificationList = async () => {};
+
 /**
  * 自动布局
  * @param {*} g  画布
  */
 export const autoLayout = (g) => {
 	const layout = new dagre.graphlib.Graph();
-	layout.setGraph({
-		rankdir: 'LR',
-		ranksep: 50,
-		nodesep: 50,
-		controlPoints: true,
-	});
+	layout.setGraph({ rankdir: 'LR', ranksep: 50, nodesep: 50, controlPoints: true });
 	layout.setDefaultEdgeLabel(() => ({}));
 
 	g?.getNodes()?.forEach((node) => {
-		layout.setNode(node.id, {
-			width: node.size().width,
-			height: node.size().height,
-		});
+		layout.setNode(node.id, { width: node.size().width, height: node.size().height });
 	});
 
 	g?.getEdges()?.forEach((edge) => {

@@ -1,7 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { message, Dropdown, Button, Modal, Select, Form, Space, Input } from 'antd';
+import {
+	message,
+	Dropdown,
+	Button,
+	Modal,
+	Select,
+	Form,
+	Space,
+	Input,
+} from 'antd';
 import myContext from '../../utils/context';
-import BaseInfo from '../../component/FlowManage/NodeInfo/NodeIndex';
+import BaseInfo from '../../component/Flow/NodeInfo/NodeIndex';
+import TemplateGraph from '../../component/Flow/templateGraph';
+import New from '../../assets/new.json';
+import New2 from '../../assets/masterplate.json';
 
 import { register } from '@antv/x6-react-shape';
 import { Graph } from '@antv/x6';
@@ -144,15 +156,15 @@ function ManageFlow(props) {
 	}, []);
 
 	return (
-		<div className='FlowManage'>
+		<div className="FlowManage">
 			<myContext.Provider
 				value={{
 					childData: clickNodeInfo,
 				}}
 			>
-				<div className='btnArr'>
+				<div className="btnArr">
 					<Button
-						type='primary'
+						type="primary"
 						onClick={() => {
 							addTask();
 						}}
@@ -160,15 +172,16 @@ function ManageFlow(props) {
 						addNode
 					</Button>
 					<Button
-						type='primary'
+						type="primary"
 						onClick={() => {
-							getTemplate();
+							setIsModalOpen(true);
+							setModalTitle('选择模版');
 						}}
 					>
 						引入模版
 					</Button>
 					<Button
-						type='primary'
+						type="primary"
 						onClick={() => {
 							setIsModalOpen(true);
 							setModalTitle('导出模版');
@@ -177,32 +190,36 @@ function ManageFlow(props) {
 						导出模版
 					</Button>
 				</div>
-				<div className='content'>
-					<div className='graphBox'>
-						<div className='react-shape-app graph'>
-							<div id='graph-container' className='app-content' style={{ flex: 1 }}></div>
+				<div className="content">
+					<div className="graphBox">
+						<div className="react-shape-app graph">
+							<div
+								id="graph-container"
+								className="app-content"
+								style={{ flex: 1 }}
+							></div>
 						</div>
 					</div>
 
-					<div className='newAllocation'>
+					<div className="newAllocation">
 						<BaseInfo />
 					</div>
 
 					{/* 模版弹框 */}
 					<Modal
-						className='dirModal'
+						className="dirModal"
 						title={modalTitle}
 						open={isModalOpen}
-						centered='true'
-						forceRender='true'
+						centered="true"
+						forceRender="true"
 						footer={null}
 						onCancel={() => {
 							cancelModal();
 						}}
 					>
 						<Form
-							className='ModalForm'
-							name='control-hooks'
+							className="ModalForm"
+							name="control-hooks"
 							ref={formRef2}
 							onFinish={sumbitTemplate}
 						>
@@ -211,8 +228,8 @@ function ManageFlow(props) {
 								<>
 									<Form.Item
 										style={{ width: '100%' }}
-										name='type'
-										label='模版导入'
+										name="type"
+										label="模版导入"
 										rules={[
 											{
 												required: true,
@@ -224,18 +241,20 @@ function ManageFlow(props) {
 											onSelect={(value) => {
 												handClick(value);
 											}} // 选择后获取模版数据
-											placeholder='请选择模版'
+											placeholder="请选择模版"
 											options={template}
 										/>
 									</Form.Item>
 									{/* 节点模版展示 */}
-									{isShowTemplate ? <TemplateGraph data={newToChild} /> : null}
+									{isShowTemplate ? (
+										<TemplateGraph data={newToChild} />
+									) : null}
 								</>
 							) : (
 								<Form.Item
 									style={{ width: '100%' }}
-									name='name'
-									label='模版名称'
+									name="name"
+									label="模版名称"
 									rules={[
 										{
 											required: true,
@@ -243,15 +262,18 @@ function ManageFlow(props) {
 										},
 									]}
 								>
-									<Input placeholder='请填写模版名称' />
+									<Input placeholder="请填写模版名称" />
 								</Form.Item>
 							)}
-							<Form.Item className='btn' style={{ justifyContent: 'center' }}>
-								<Button type='primary' htmlType='submit'>
+							<Form.Item
+								className="btn"
+								style={{ justifyContent: 'center' }}
+							>
+								<Button type="primary" htmlType="submit">
 									确认
 								</Button>
 								<Button
-									htmlType='button'
+									htmlType="button"
 									onClick={() => {
 										formRef.current?.resetFields();
 										setIsModalOpen(false);
@@ -292,14 +314,16 @@ function ManageFlow(props) {
 					trigger={['contextMenu']}
 				>
 					<div
-						className='custom-react-node'
+						className="custom-react-node"
 						style={{
 							background: label === '开始' ? '#7AA874' : color,
 							borderRadius: label === '开始' ? '50%' : '0',
 							border: `3px solid ${boder}`,
 						}}
 					>
-						{label === '开始' ? null : <img className='img' src={male} alt='Icon' />}
+						{label === '开始' ? null : (
+							<img className="img" src={male} alt="Icon" />
+						)}
 						{label}
 					</div>
 				</Dropdown>
@@ -422,27 +446,24 @@ function ManageFlow(props) {
 			const cells = newGraph.getCells(); // 获取所有单元格
 			newGraph.removeCells(cells); // 清空所有单元格
 			await new Promise((resolve) => setTimeout(resolve, 100));
-			newGraph.fromJSON(newToChild.template).centerContent(); // 导入模版到画布
+			if (value.type == 1) {
+				newGraph.fromJSON(New).centerContent(); // 导入模版到画布
+			} else {
+				newGraph.fromJSON(New2).centerContent(); // 导入模版到画布
+			}
 			// 更新目录树
 			message.success('插入成功！');
 		} else if (modalTitle === '导出模版') {
 			// 导出模版
 
-			const data = {
-				name: value.name,
-				template: JSON.stringify(newGraph.toJSON({ diff: true })), // 模版数据
-			};
-
-			console.log(JSON.stringify(newGraph.toJSON({ diff: true })), '导出');
+			console.log(
+				JSON.stringify(newGraph.toJSON({ diff: true })),
+				'导出'
+			);
 		}
 		setIsModalOpen(false);
 		setIsShowTemplate(false); // 关闭弹框画布
 		formRef2.current?.resetFields();
-	}
-
-	function getTemplate() {
-		setIsModalOpen(true);
-		setModalTitle('选择模版');
 	}
 
 	/** 取消弹框 */
