@@ -14,7 +14,6 @@ let count = 0;
 const male =
 	'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*kUy8SrEDp6YAAAAAAAAAAAAAARQnAQ'; // 节点icon
 
-			attrs: {
 /** 函数组件 */
 function ManageFlow(props) {
 	let graph;
@@ -63,7 +62,6 @@ function ManageFlow(props) {
 
 	useEffect(() => {
 		nodeInfoRef.current = nodeInfo;
-		console.log(nodeInfoRef.current);
 	}, [nodeInfo]);
 
 	useEffect(() => {
@@ -166,7 +164,6 @@ function ManageFlow(props) {
 						className="custom-react-node"
 						style={{
 							background: label === '开始' ? '#7AA874' : color,
-							borderRadius: label === '开始' ? '50%' : '0',
 							border: `3px solid ${boder}`,
 						}}
 					>
@@ -252,7 +249,6 @@ function ManageFlow(props) {
 		const g = graph ? graph : newGraph;
 
 		if (nodeInfoRef.current) {
-			// 如果 nodeInfoRef.current 存在且 graph 存在，则将新节点添加到 graph 中
 			newNode = g.addNode(newNodeOptions); // 在添加边之前声明和初始化 newNode
 			g.addEdge({
 				source: nodeInfoRef.current,
