@@ -1,5 +1,4 @@
 import { message } from 'antd';
-import * as XLSX from 'xlsx/xlsx.mjs';
 import dagre from 'dagre';
 
 let count = 0;
@@ -42,16 +41,6 @@ export const resetForm = (formEl) => {
 	if (!formEl) return;
 	formEl.resetFields();
 };
-
-export const getStaffList = async () => {};
-
-export const getDepartmentList = async () => {};
-
-export const getEngineerList = async () => {};
-
-export const getTeam = async () => {};
-
-export const getClassificationList = async () => {};
 
 /**
  * 自动布局

@@ -60,7 +60,6 @@ function ManageFlow(props) {
 
 	useEffect(() => {
 		nodeInfoRef.current = nodeInfo;
-		console.log(nodeInfoRef.current);
 	}, [nodeInfo]);
 
 	useEffect(() => {}, []);

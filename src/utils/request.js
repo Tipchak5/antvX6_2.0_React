@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 
-const baseUrl = 'https://api.yanshi.com/7304'; // 公司
+const baseUrl = 'https://'; 
 const apiToken = localStorage.getItem('token');
 
 axios.defaults.timeout = 5000;
@@ -14,18 +14,13 @@ axios.interceptors.request.use(
 		const apiToken = localStorage.getItem('token');
 
 		// 判断接口是否为登录接口
-		const isLoginUrl = config.url.indexOf('staff/get.do') !== -1;
-		const isLoginUrl2 = config.url.indexOf('department/get.do') !== -1;
-		const isLoginUrl3 = config.url.indexOf('engineer/get.do') !== -1;
 
 		if (apiToken) {
 			config.headers.Authorization = apiToken;
-		} else if (isLoginUrl || isLoginUrl2 || isLoginUrl3) {
 		} else {
 			console.log('没有token');
 			window.location.href = '/#/login';
 		}
-
 		return config;
 	},
 	(error) => {
@@ -47,7 +42,6 @@ axios.interceptors.response.use(
 			// 清空数据
 			localStorage.clear();
 			sessionStorage.clear();
-			history.push('/login');
 		}
 		if (stutas === 403) {
 		}

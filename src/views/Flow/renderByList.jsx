@@ -8,90 +8,13 @@ import { Snapline } from '@antv/x6-plugin-snapline';
 import { Transform } from '@antv/x6-plugin-transform';
 import { reset, showPorts, autoLayout } from '../../utils/method';
 import './nodeFlow.less';
+import { ports } from '../../assets/ports';
 
 let count = 0;
 const male =
 	'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*kUy8SrEDp6YAAAAAAAAAAAAAARQnAQ'; // 节点icon
 
-const ports = {
-	groups: {
-		top: {
-			position: 'top',
 			attrs: {
-				circle: {
-					r: 4,
-					magnet: true,
-					// stroke: 'black',
-					strokeWidth: 0.2,
-					fill: '#fff',
-					style: {
-						visibility: 'hidden',
-					},
-				},
-			},
-		},
-		right: {
-			position: 'right',
-			attrs: {
-				circle: {
-					r: 4,
-					magnet: true,
-					// stroke: 'black',
-					strokeWidth: 0.2,
-					fill: '#fff',
-					style: {
-						visibility: 'hidden',
-					},
-				},
-			},
-		},
-		bottom: {
-			position: 'bottom',
-			attrs: {
-				circle: {
-					r: 4,
-					magnet: true,
-					// stroke: 'black',
-					strokeWidth: 0.2,
-					fill: '#fff',
-					style: {
-						visibility: 'hidden',
-					},
-				},
-			},
-		},
-		left: {
-			position: 'left',
-			attrs: {
-				circle: {
-					r: 4,
-					magnet: true,
-					// stroke: 'black',
-					strokeWidth: 0.2,
-					fill: '#fff',
-					style: {
-						visibility: 'hidden',
-					},
-				},
-			},
-		},
-	},
-	items: [
-		{
-			group: 'top',
-		},
-		{
-			group: 'right',
-		},
-		{
-			group: 'bottom',
-		},
-		{
-			group: 'left',
-		},
-	],
-}; // 连接桩
-
 /** 函数组件 */
 function ManageFlow(props) {
 	let graph;
@@ -195,13 +118,21 @@ function ManageFlow(props) {
 	}, []);
 
 	return (
-		<div className='FlowManage'>
-			<div className='content' style={{ flexDirection: 'initial' }}>
-				<Tree defaultExpandAll treeData={treeList} style={{ width: '180px', padding: '15px' }} />
+		<div className="FlowManage">
+			<div className="content" style={{ flexDirection: 'initial' }}>
+				<Tree
+					defaultExpandAll
+					treeData={treeList}
+					style={{ width: '180px', padding: '15px' }}
+				/>
 
-				<div className='graphBox'>
-					<div className='react-shape-app graph'>
-						<div id='graph-container' className='app-content' style={{ flex: 1 }}></div>
+				<div className="graphBox">
+					<div className="react-shape-app graph">
+						<div
+							id="graph-container"
+							className="app-content"
+							style={{ flex: 1 }}
+						></div>
 					</div>
 				</div>
 			</div>
@@ -232,14 +163,16 @@ function ManageFlow(props) {
 					trigger={['contextMenu']}
 				>
 					<div
-						className='custom-react-node'
+						className="custom-react-node"
 						style={{
 							background: label === '开始' ? '#7AA874' : color,
 							borderRadius: label === '开始' ? '50%' : '0',
 							border: `3px solid ${boder}`,
 						}}
 					>
-						{label === '开始' ? null : <img className='img' src={male} alt='Icon' />}
+						{label === '开始' ? null : (
+							<img className="img" src={male} alt="Icon" />
+						)}
 						{label}
 					</div>
 				</Dropdown>
